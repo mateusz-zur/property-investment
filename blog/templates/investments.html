@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+  <h1>Open investments</h1>
+</div>
+
+{% for investment in investments %}
+  <div>
+    <br>
+    <table>
+      <tr>
+        <th>
+          <h1>{{ investment.title }}</h1>
+        </th>
+        <th>
+          <h6>start date: {{ investment.start_date }}<br>
+              end date: {{ investment.end_date }}</h6>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <p>
+            amount to collect: {{ investment.amount }}<br>
+            price per unit: {{ investment.price_per_unit }}<br>
+            minimal investment: {{ investment.minimal_investment }}<br>
+            ROI: {{ investment.percent }}%</p>
+          <p><a href={% url 'save-investment' investment.id %}>Export description about investment to file</a></p>
+          <a href={% url 'read-investment' investment.id %}>Show file content</td>
+        </td>
+      </tr>
+  </tablle>
+  <br><br>
+</div>
+{% endfor %}
+{% endblock %}

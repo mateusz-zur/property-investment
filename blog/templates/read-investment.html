@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+      <h3>File content with information about investment:</h3><br><br>
+      {{ investment }}
+    {% else %}
+      Ooops! You are not able to see this page.<br>
+      Please sign in or sign up.
+    {% endif %}
+    <br><br><hr>
+    <p><a href="/investments">Show open investments</a></p>
+{% endblock %}
